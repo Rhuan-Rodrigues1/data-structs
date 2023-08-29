@@ -12,7 +12,7 @@ typedef struct node Node;
 
 
 Node* criar(int valor) {
-        Node *n = (Node*) malloc(sizeof(Node));
+        Node *n = malloc(sizeof(Node));
 
         n->valor = valor;
         n->direita = NULL;
@@ -39,14 +39,20 @@ void adicionar(Node *n, int valor) {
 
 void imprimir(Node *n) {
     if(n == NULL) return;
-    imprimir(n->direita);
-    printf('Node: %d', n->valor);
     imprimir(n->esquerda);
+    printf("\nNode: %d", n->valor);
+    imprimir(n->direita);
 }
 
 int main(void) {
 
     Node *root = criar(5);
+
+    adicionar(root,2);
+	adicionar(root,0);
+	adicionar(root,1);
+	adicionar(root,8);
+	adicionar(root,4);
 
     imprimir(root);
     return 0;
